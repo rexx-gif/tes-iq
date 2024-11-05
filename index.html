@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tes IQ</title>
+    <style>
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 20px;
+    }
+
+    body {
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-color: aqua;
+    }
+
+    .question {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .question p {
+        font-size: 18px;
+        color: #2c3e50;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .answers label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #34495e;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+    }
+
+    #result {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 30px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .feedback {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .feedback.green {
+        color: green;
+    }
+
+    .feedback.red {
+        color: red;
+    }
+
+    .feedback.orange {
+        color: orange;
+    }
+
+    @media (max-width: 768px) {
+        form {
+            width: 90%;
+        }
+    }
+</style>
+</head>
+<body>
+   
+    <h1>Tes IQ</h1>
+        <!-- Pertanyaan 1 -->
+        <div class="question" id="question-1">
+            <p>1. Berapa banyak sisi pada sebuah segitiga?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="A"> 3</label><br>
+                <label><input type="radio" name="q1" value="B"> 4</label><br>
+                <label><input type="radio" name="q1" value="C"> 5</label><br>
+                <label><input type="radio" name="q1" value="D"> 6</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 2 -->
+        <div class="question" id="question-2">
+            <p>2. Apa hasil dari 12 x 5?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="A"> 50</label><br>
+                <label><input type="radio" name="q2" value="B"> 60</label><br>
+                <label><input type="radio" name="q2" value="C"> 70</label><br>
+                <label><input type="radio" name="q2" value="D"> 75</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 3 -->
+        <div class="question" id="question-3">
+            <p>3. Manakah yang lebih besar?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="A"> 10 + 20</label><br>
+                <label><input type="radio" name="q3" value="B"> 25 + 5</label><br>
+                <label><input type="radio" name="q3" value="C"> 15 + 18</label><br>
+                <label><input type="radio" name="q3" value="D"> 50 - 5</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 4 -->
+        <div class="question" id="question-4">
+            <p>4. Apa ibu kota Indonesia?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="A"> Jakarta</label><br>
+                <label><input type="radio" name="q4" value="B"> Bandung</label><br>
+                <label><input type="radio" name="q4" value="C"> Surabaya</label><br>
+                <label><input type="radio" name="q4" value="D"> Yogyakarta</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 5 -->
+        <div class="question" id="question-5">
+            <p>5. Siapa penemu telepon?</p>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="A"> Thomas Edison</label><br>
+                <label><input type="radio" name="q5" value="B"> Nikola Tesla</label><br>
+                <label><input type="radio" name="q5" value="C"> Alexander Graham Bell</label><br>
+                <label><input type="radio" name="q5" value="D"> Albert Einstein</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 6 -->
+        <div class="question" id="question-6">
+            <p>6. Berapa jumlah sudut pada sebuah segi empat?</p>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="A"> 90</label><br>
+                <label><input type="radio" name="q6" value="B"> 180</label><br>
+                <label><input type="radio" name="q6" value="C"> 360</label><br>
+                <label><input type="radio" name="q6" value="D"> 270</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 7 -->
+        <div class="question" id="question-7">
+            <p>7. Berapa 5 x 6?</p>
+            <div class="answers">
+                <label><input type="radio" name="q7" value="A"> 30</label><br>
+                <label><input type="radio" name="q7" value="B"> 35</label><br>
+                <label><input type="radio" name="q7" value="C"> 40</label><br>
+                <label><input type="radio" name="q7" value="D"> 25</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 8 -->
+        <div class="question" id="question-8">
+            <p>8. Apa warna langit pada siang hari?</p>
+            <div class="answers">
+                <label><input type="radio" name="q8" value="A"> Merah</label><br>
+                <label><input type="radio" name="q8" value="B"> Biru</label><br>
+                <label><input type="radio" name="q8" value="C"> Hijau</label><br>
+                <label><input type="radio" name="q8" value="D"> Kuning</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 9 -->
+        <div class="question" id="question-9">
+            <p>9. Siapa presiden pertama Indonesia?</p>
+            <div class="answers">
+                <label><input type="radio" name="q9" value="A"> Soekarno</label><br>
+                <label><input type="radio" name="q9" value="B"> Soeharto</label><br>
+                <label><input type="radio" name="q9" value="C"> BJ Habibie</label><br>
+                <label><input type="radio" name="q9" value="D"> Megawati</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 10 -->
+        <div class="question" id="question-10">
+            <p>10. Manakah yang lebih besar?</p>
+            <div class="answers">
+                <label><input type="radio" name="q10" value="A"> 5 + 10</label><br>
+                <label><input type="radio" name="q10" value="B"> 3 + 9</label><br>
+                <label><input type="radio" name="q10" value="C"> 2 + 7</label><br>
+                <label><input type="radio" name="q10" value="D"> 1 + 4</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 11 -->
+        <div class="question" id="question-11">
+            <p>11. Berapa hasil dari 100 - 50?</p>
+            <div class="answers">
+                <label><input type="radio" name="q11" value="A"> 40</label><br>
+                <label><input type="radio" name="q11" value="B"> 50</label><br>
+                <label><input type="radio" name="q11" value="C"> 60</label><br>
+                <label><input type="radio" name="q11" value="D"> 70</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 12 -->
+        <div class="question" id="question-12">
+            <p>12. Siapa penulis buku Harry Potter?</p>
+            <div class="answers">
+                <label><input type="radio" name="q12" value="A"> J.K. Rowling</label><br>
+                <label><input type="radio" name="q12" value="B"> George Orwell</label><br>
+                <label><input type="radio" name="q12" value="C"> Agatha Christie</label><br>
+                <label><input type="radio" name="q12" value="D"> J.R.R. Tolkien</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 13 -->
+        <div class="question" id="question-13">
+            <p>13. Apakah benda yang mengapung di air?</p>
+            <div class="answers">
+                <label><input type="radio" name="q13" value="A"> Batu</label><br>
+                <label><input type="radio" name="q13" value="B"> Kayu</label><br>
+                <label><input type="radio" name="q13" value="C"> Besi</label><br>
+                <label><input type="radio" name="q13" value="D"> Plastik</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 14 -->
+        <div class="question" id="question-14">
+            <p>14. Apa warna darah manusia?</p>
+            <div class="answers">
+                <label><input type="radio" name="q14" value="A"> Hijau</label><br>
+                <label><input type="radio" name="q14" value="B"> Merah</label><br>
+                <label><input type="radio" name="q14" value="C"> Biru</label><br>
+                <label><input type="radio" name="q14" value="D"> Kuning</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 15 -->
+        <div class="question" id="question-15">
+            <p>15. Siapa yang menemukan listrik?</p>
+            <div class="answers">
+                <label><input type="radio" name="q15" value="A"> Albert Einstein</label><br>
+                <label><input type="radio" name="q15" value="B"> Nikola Tesla</label><br>
+                <label><input type="radio" name="q15" value="C"> Thomas Edison</label><br>
+                <label><input type="radio" name="q15" value="D"> Benjamin Franklin</label>
+            </div>
+        </div>
+        <div class="question" id="question-16">
+            <p>16. Manakah yang tidak termasuk dalam deretan berikut?</p>
+            <div class="answers">
+                <label><input type="radio" name="q16" value="A"> 2, 4, 6, 8, 10</label><br>
+                <label><input type="radio" name="q16" value="B"> 1, 3, 5, 7, 9</label><br>
+                <label><input type="radio" name="q16" value="C"> 1, 2, 3, 4, 5</label><br>
+                <label><input type="radio" name="q16" value="D"> 2, 3, 5, 7, 11</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 2: Matematika -->
+        <div class="question" id="question-17">
+            <p>17. Jika 5 + 3 = 16, 7 + 2 = 18, maka 6 + 4 = ?</p>
+            <div class="answers">
+                <label><input type="radio" name="q17" value="A"> 20</label><br>
+                <label><input type="radio" name="q17" value="B"> 22</label><br>
+                <label><input type="radio" name="q17" value="C"> 24</label><br>
+                <label><input type="radio" name="q17" value="D"> 30</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 3: Analogi Verbal -->
+        <div class="question" id="question-18">
+            <p>18. Buku adalah untuk membaca, seperti halnya pena adalah untuk...?</p>
+            <div class="answers">
+                <label><input type="radio" name="q18" value="A"> Menulis</label><br>
+                <label><input type="radio" name="q18" value="B"> Menggambar</label><br>
+                <label><input type="radio" name="q18" value="C"> Mewarnai</label><br>
+                <label><input type="radio" name="q18" value="D"> Mencorat-coret</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 4: Analogi Matematika -->
+        <div class="question" id="question-19">
+            <p>19. 4. 2 : 8 = 3 : ?</p>
+            <div class="answers">
+                <label><input type="radio" name="q19" value="A"> 9</label><br>
+                <label><input type="radio" name="q19" value="B"> 12</label><br>
+                <label><input type="radio" name="q19" value="C"> 15</label><br>
+                <label><input type="radio" name="q19" value="D"> 16</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 5: Gambar -->
+        <div class="question" id="question-20">
+            <p>20. Apa yang akan datang setelah pola berikut: 🌟, 🌕, 🌟, 🌕?</p>
+            <div class="answers">
+                <label><input type="radio" name="q20" value="A"> 🌟</label><br>
+                <label><input type="radio" name="q20" value="B"> 🌙</label><br>
+                <label><input type="radio" name="q20" value="C"> 🌕</label><br>
+                <label><input type="radio" name="q20" value="D"> 🌞</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 6: Pengetahuan Umum -->
+        <div class="question" id="question-21">
+            <p>21. Apa nama planet terdekat dengan Matahari?</p>
+            <div class="answers">
+                <label><input type="radio" name="q21" value="A"> Venus</label><br>
+                <label><input type="radio" name="q21" value="B"> Mars</label><br>
+                <label><input type="radio" name="q21" value="C"> Merkurius</label><br>
+                <label><input type="radio" name="q21" value="D"> Jupiter</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 7: Urutan Angka -->
+        <div class="question" id="question-22">
+            <p>22. Apa yang akan datang selanjutnya dalam urutan angka berikut: 1, 4, 9, 16, ?</p>
+            <div class="answers">
+                <label><input type="radio" name="q22" value="A"> 25</label><br>
+                <label><input type="radio" name="q22" value="B"> 36</label><br>
+                <label><input type="radio" name="q22" value="C"> 20</label><br>
+                <label><input type="radio" name="q22" value="D"> 24</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 8: Hubungan Kata -->
+        <div class="question" id="question-23">
+            <p>23. Padi : Nasi = Kedelai : ?</p>
+            <div class="answers">
+                <label><input type="radio" name="q23" value="A"> Tahu</label><br>
+                <label><input type="radio" name="q23" value="B"> Tempe</label><br>
+                <label><input type="radio" name="q23" value="C"> Minyak</label><br>
+                <label><input type="radio" name="q23" value="D"> Kedelai olahan</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 9: Pemahaman Bahasa -->
+        <div class="question" id="question-24">
+            <p>24. Sinonim dari "cerah" adalah...</p>
+            <div class="answers">
+                <label><input type="radio" name="q24" value="A"> Gelap</label><br>
+                <label><input type="radio" name="q24" value="B"> Suram</label><br>
+                <label><input type="radio" name="q24" value="C"> Terang</label><br>
+                <label><input type="radio" name="q24" value="D"> Kusam</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 10: Logika Matematika -->
+        <div class="question" id="question-25">
+            <p>25. Jika 6 pekerja dapat menyelesaikan pekerjaan dalam 12 hari, berapa banyak hari yang dibutuhkan 4 pekerja untuk menyelesaikan pekerjaan yang sama?</p>
+            <div class="answers">
+                <label><input type="radio" name="q25" value="A"> 16 hari</label><br>
+                <label><input type="radio" name="q25" value="B"> 18 hari</label><br>
+                <label><input type="radio" name="q25" value="C"> 24 hari</label><br>
+                <label><input type="radio" name="q25" value="D"> 30 hari</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 11 -->
+        <div class="question" id="question-26">
+            <p>26. Manakah yang lebih besar? 5/8 atau 3/5?</p>
+            <div class="answers">
+                <label><input type="radio" name="q26" value="A"> 5/8</label><br>
+                <label><input type="radio" name="q26" value="B"> 3/5</label><br>
+                <label><input type="radio" name="q26" value="C"> Kedua sama</label><br>
+                <label><input type="radio" name="q26" value="D"> Tidak bisa dibandingkan</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 12 -->
+        <div class="question" id="question-27">
+            <p>27. Mana yang bukan jenis energi terbarukan?</p>
+            <div class="answers">
+                <label><input type="radio" name="q27" value="A"> Energi Matahari</label><br>
+                <label><input type="radio" name="q27" value="B"> Energi Angin</label><br>
+                <label><input type="radio" name="q27" value="C"> Energi Air</label><br>
+                <label><input type="radio" name="q27" value="D"> Energi Fosil</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 13 -->
+        <div class="question" id="question-28">
+            <p>28. Berapa hasil dari 25 x 6?</p>
+            <div class="answers">
+                <label><input type="radio" name="q28" value="A"> 130</label><br>
+                <label><input type="radio" name="q28" value="B"> 150</label><br>
+                <label><input type="radio" name="q28" value="C"> 175</label><br>
+                <label><input type="radio" name="q28" value="D"> 200</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 14 -->
+        <div class="question" id="question-29">
+            <p>29. Apakah ibu kota Australia?</p>
+            <div class="answers">
+                <label><input type="radio" name="q29" value="A"> Sydney</label><br>
+                <label><input type="radio" name="q29" value="B"> Melbourne</label><br>
+                <label><input type="radio" name="q29" value="C"> Canberra</label><br>
+                <label><input type="radio" name="q29" value="D"> Brisbane</label>
+            </div>
+        </div>
+
+        <!-- Pertanyaan 15 -->
+        <div class="question" id="question-30">
+            <p>30. Mana yang merupakan hewan mamalia?</p>
+            <div class="answers">
+                <label><input type="radio" name="q30" value="A"> Ayam</label><br>
+                <label><input type="radio" name="q30" value="B"> Ikan</label><br>
+                <label><input type="radio" name="q30" value="C"> Domba</label><br>
+                <label><input type="radio" name="q30" value="D"> Bebek</label>
+            </div>
+        </div>
+
+
+        <!-- Tombol Submit -->
+        <button class="button" onclick="submitQuiz()">Kirim Jawaban</button><br>
+        <h3>&copy Made By RexxSigma</h3>
+    <h2 id="result"></h2>
+
+    <script>
+        function submitQuiz() {
+            // Data jawaban yang benar
+            const correctAnswers = [
+                { question: 'q1', correctAnswer: 'A' },
+                { question: 'q2', correctAnswer: 'B' },
+                { question: 'q3', correctAnswer: 'D' },
+                { question: 'q4', correctAnswer: 'A' },
+                { question: 'q5', correctAnswer: 'C' },
+                { question: 'q6', correctAnswer: 'C' },
+                { question: 'q7', correctAnswer: 'A' },
+                { question: 'q8', correctAnswer: 'B' },
+                { question: 'q9', correctAnswer: 'A' },
+                { question: 'q10', correctAnswer: 'A' },
+                { question: 'q11', correctAnswer: 'B' },
+                { question: 'q12', correctAnswer: 'A' },
+                { question: 'q13', correctAnswer: 'B' },
+                { question: 'q14', correctAnswer: 'B' },
+                { question: 'q15', correctAnswer: 'D' },
+                { question: 'q16', correctAnswer: 'D' },
+                { question: 'q17', correctAnswer: 'B' },
+                { question: 'q18', correctAnswer: 'C' },
+                { question: 'q19', correctAnswer: 'D' },
+                { question: 'q20', correctAnswer: 'B' },
+                { question: 'q21', correctAnswer: 'C' },
+                { question: 'q22', correctAnswer: 'A' },
+                { question: 'q23', correctAnswer: 'C' },
+                { question: 'q24', correctAnswer: 'B' },
+                { question: 'q25', correctAnswer: 'D' },
+                { question: 'q26', correctAnswer: 'B' },
+                { question: 'q27', correctAnswer: 'C' },
+                { question: 'q28', correctAnswer: 'D' },
+                { question: 'q29', correctAnswer: 'B' },
+                { question: 'q30', correctAnswer: 'D' }
+            ];
+
+            let score = 0;
+
+            // Loop untuk mengecek jawaban
+            correctAnswers.forEach(function(answer) {
+                const userAnswer = document.querySelector(`input[name="${answer.question}"]:checked`);
+                const questionElement = document.getElementById(`question-${answer.question.slice(1)}`);
+                // Mendapatkan elemen pertanyaan berdasarkan ID
+                
+                // Cek apakah questionElement ditemukan
+                if (!questionElement) {
+                    console.error(`Elemen dengan ID ${answer.question} tidak ditemukan.`);
+                    return; // Jika tidak ditemukan, keluar dari fungsi ini
+                }
+
+                // Membuat elemen feedback
+                const feedback = document.createElement('div'); 
+                feedback.classList.add('feedback');
+
+                // Cek apakah pengguna sudah memilih jawaban
+                if (userAnswer) {
+                    if (userAnswer.value === answer.correctAnswer) {
+                        score++;
+                        feedback.innerHTML = "Jawaban Anda Benar!";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.innerHTML = "Jawaban Anda Salah.";
+                        feedback.style.color = "red";
+                    }
+                } else {
+                    feedback.innerHTML = "Anda belum memilih jawaban.";
+                    feedback.style.color = "orange";
+                }
+
+                // Menambahkan feedback ke elemen pertanyaan
+                questionElement.appendChild(feedback);
+            });
+
+            // Menampilkan skor
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `Skor Anda: ${score} dari ${correctAnswers.length}`;
+        }
+    </script>
+</body>
+</html>
