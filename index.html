@@ -563,6 +563,19 @@ svg text {
         iqResult = "Rata-rata. IQ Anda normal.";
     } else if (iqScore >= 65) {
         iqResult = "Kurang Cerdas. IQ Anda sedikit di bawah rata-rata.";
+    } else if (iqScore >= 50) {
+       iqResult = "Sangat Kurang Cerdas. IQ Anda sangat sedikit di bawah rata-rata.";
+       } else if (iqScore >= 35) {
+        iqResult = "Kurang Cerdas. IQ Anda sedikit di bawah rata-rata.";
+       } else if (iqScore >= 20) {
+            iqResult = "Kamu kurang cerdas sering2 dibuka bukunya";
+       } else if (iqScore >= 10) {
+            iqResult = "Kurang2in bergaul dengan orang yang salah";
+       } else if (iqScore >= 5) {
+            iqResult = "Belajar lagi jangan suka tidur di sekolah";
+       } else if (iqScore >= 0) {
+            iqResult = "Mati aja";
+   
     } else {
         iqResult = "Perlu Latihan. IQ Anda di bawah rata-rata.";
     }
@@ -579,7 +592,7 @@ function calculateIQ(score, totalQuestions) {
     const percentage = score / totalQuestions;
 
     // Menentukan rentang IQ berdasarkan persentase
-    const iq = 65 + (percentage * 60);  // Rentang IQ dari 65 hingga 130
+    const iq = 0 + (percentage * 60);  // Rentang IQ dari 65 hingga 130
     return Math.round(iq);
 }
 
