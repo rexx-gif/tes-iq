@@ -22,6 +22,22 @@
         color: #2c3e50;
         margin-top: 20px;
     }
+    
+    .correct {
+    background-color: #32ff39; /* Warna hijau muda untuk jawaban benar */
+    color: #388e3c;
+}
+
+.incorrect {
+    background-color: #ff1c1c; /* Warna merah muda untuk jawaban salah */
+    color: #d32f2f;
+}
+
+.unanswered {
+    background-color: #f0f0f0; /* Warna abu-abu untuk soal yang tidak dijawab */
+    color: #9e9e9e;
+}
+
 
     body {
         width: 80%;
@@ -106,11 +122,43 @@
             width: 90%;
         }
     }
+    @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 3s infinite alternate;
+	stroke-width: 2;
+	stroke: #00CCC8;
+	font-size: 100px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(0,204,200,0); stroke: rgba(0,204,200,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(0,204,200,0); stroke: rgba(0,204,200,1); }
+	80%  {fill: rgba(0,204,200,0); stroke: rgba(0,204,200,1); stroke-width: 3; }
+	100% {
+		fill: rgba(0,204,200,1); stroke: rgba(0,204,200,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: #b0afaf};
 </style>
 </head>
 <body>
    
-    <h1>Tes IQ</h1>
+      <div class="wrapper">
+            <svg>
+                  <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                        TES IQ REXX
+                  </text>
+            </svg>
+      </div>
         <!-- Pertanyaan 1 -->
         <div class="question" id="question-1">
             <p>1. Berapa banyak sisi pada sebuah segitiga?</p>
@@ -446,82 +494,107 @@
     <h2 id="result"></h2>
 
     <script>
-        function submitQuiz() {
-            // Data jawaban yang benar
-            const correctAnswers = [
-                { question: 'q1', correctAnswer: 'A' },
-                { question: 'q2', correctAnswer: 'B' },
-                { question: 'q3', correctAnswer: 'D' },
-                { question: 'q4', correctAnswer: 'A' },
-                { question: 'q5', correctAnswer: 'C' },
-                { question: 'q6', correctAnswer: 'C' },
-                { question: 'q7', correctAnswer: 'A' },
-                { question: 'q8', correctAnswer: 'B' },
-                { question: 'q9', correctAnswer: 'A' },
-                { question: 'q10', correctAnswer: 'A' },
-                { question: 'q11', correctAnswer: 'B' },
-                { question: 'q12', correctAnswer: 'A' },
-                { question: 'q13', correctAnswer: 'B' },
-                { question: 'q14', correctAnswer: 'B' },
-                { question: 'q15', correctAnswer: 'D' },
-                { question: 'q16', correctAnswer: 'D' },
-                { question: 'q17', correctAnswer: 'B' },
-                { question: 'q18', correctAnswer: 'C' },
-                { question: 'q19', correctAnswer: 'D' },
-                { question: 'q20', correctAnswer: 'B' },
-                { question: 'q21', correctAnswer: 'C' },
-                { question: 'q22', correctAnswer: 'A' },
-                { question: 'q23', correctAnswer: 'C' },
-                { question: 'q24', correctAnswer: 'B' },
-                { question: 'q25', correctAnswer: 'D' },
-                { question: 'q26', correctAnswer: 'B' },
-                { question: 'q27', correctAnswer: 'C' },
-                { question: 'q28', correctAnswer: 'D' },
-                { question: 'q29', correctAnswer: 'B' },
-                { question: 'q30', correctAnswer: 'D' }
-            ];
+      function submitQuiz() {
+    const totalQuestions = 30; // Jumlah soal, sesuaikan dengan total soal
+    let score = 0;
 
-            let score = 0;
+    // Jawaban yang benar untuk setiap soal
+    const correctAnswers = {
+        q1: 'A',
+        q2: 'A',
+        q3: 'A',
+        q4: 'A',
+        q5: 'C',
+        q6: 'C',
+        q7: 'A',
+        q8: 'B',
+        q9: 'A',
+        q10: 'A',
+        q11: 'B',
+        q12: 'A',
+        q13: 'B',
+        q14: 'B',
+        q15: 'D',
+        q16: 'D',
+        q17: 'B',
+        q18: 'C',
+        q19: 'A',
+        q20: 'C',
+        q21: 'A',
+        q22: 'B',
+        q23: 'C',
+        q24: 'C',
+        q25: 'C',
+        q26: 'A',
+        q27: 'C',
+        q28: 'D',
+        q29: 'B',
+        q30: 'A'
+    };
 
-            // Loop untuk mengecek jawaban
-            correctAnswers.forEach(function(answer) {
-                const userAnswer = document.querySelector(`input[name="${answer.question}"]:checked`);
-                const questionElement = document.getElementById(`question-${answer.question.slice(1)}`);
-                // Mendapatkan elemen pertanyaan berdasarkan ID
-                
-                // Cek apakah questionElement ditemukan
-                if (!questionElement) {
-                    console.error(`Elemen dengan ID ${answer.question} tidak ditemukan.`);
-                    return; // Jika tidak ditemukan, keluar dari fungsi ini
-                }
+    // Cek setiap soal
+    for (let i = 1; i <= totalQuestions; i++) {
+        const selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        const questionElement = document.getElementById(`question-${i}`); // Mengambil elemen soal
 
-                // Membuat elemen feedback
-                const feedback = document.createElement('div'); 
-                feedback.classList.add('feedback');
-
-                // Cek apakah pengguna sudah memilih jawaban
-                if (userAnswer) {
-                    if (userAnswer.value === answer.correctAnswer) {
-                        score++;
-                        feedback.innerHTML = "Jawaban Anda Benar!";
-                        feedback.style.color = "green";
-                    } else {
-                        feedback.innerHTML = "Jawaban Anda Salah.";
-                        feedback.style.color = "red";
-                    }
-                } else {
-                    feedback.innerHTML = "Anda belum memilih jawaban.";
-                    feedback.style.color = "orange";
-                }
-
-                // Menambahkan feedback ke elemen pertanyaan
-                questionElement.appendChild(feedback);
-            });
-
-            // Menampilkan skor
-            const resultElement = document.getElementById('result');
-            resultElement.innerHTML = `Skor Anda: ${score} dari ${correctAnswers.length}`;
+        if (selectedAnswer) {
+            // Menandai jawaban benar atau salah
+            if (selectedAnswer.value === correctAnswers[`q${i}`]) {
+                questionElement.classList.add('correct'); // Menambahkan kelas 'correct' jika jawabannya benar
+                score++; // Menambah skor jika jawaban benar
+            } else {
+                questionElement.classList.add('incorrect'); // Menambahkan kelas 'incorrect' jika jawabannya salah
+            }
+        } else {
+            questionElement.classList.add('unanswered'); // Menambahkan kelas 'unanswered' jika soal tidak dijawab
         }
+    }
+
+    // Menghitung IQ berdasarkan skor
+    let iqScore = calculateIQ(score, totalQuestions);
+
+    // Menentukan hasil IQ berdasarkan IQ yang dihitung
+    let iqResult = "";
+    if (iqScore >= 130) {
+        iqResult = "Sangat Cerdas! IQ Anda sangat tinggi.";
+    } else if (iqScore >= 95) {
+        iqResult = "Cerdas! IQ Anda di atas rata-rata.";
+    } else if (iqScore >= 80) {
+        iqResult = "Rata-rata. IQ Anda normal.";
+    } else if (iqScore >= 65) {
+        iqResult = "Kurang Cerdas. IQ Anda sedikit di bawah rata-rata.";
+    } else {
+        iqResult = "Perlu Latihan. IQ Anda di bawah rata-rata.";
+    }
+
+    // Menampilkan hasil skor dan IQ dengan angka
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `Skor Anda: ${score} dari ${totalQuestions}<br>`;
+    resultElement.innerHTML += `Hasil IQ Anda: ${iqScore} <br>${iqResult}`;
+}
+
+// Fungsi untuk menghitung IQ berdasarkan skor
+function calculateIQ(score, totalQuestions) {
+    // Menghitung persentase jawaban yang benar
+    const percentage = score / totalQuestions;
+
+    // Menentukan rentang IQ berdasarkan persentase
+    const iq = 65 + (percentage * 60);  // Rentang IQ dari 65 hingga 130
+    return Math.round(iq);
+}
+
+
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
